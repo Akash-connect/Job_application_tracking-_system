@@ -23,6 +23,8 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://localhost:8000",
         "http://localhost:8001",
+        "https://job-application-tracking-system-igmb0m919.vercel.app",
+        "https://job-application-tracking-system-git-dac5ac-akash-connects-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -36,4 +38,10 @@ app.include_router(jobs_router, prefix=settings.api_prefix)
 @app.get("/health", tags=["system"])
 def healthcheck():
     """Basic service health endpoint."""
+    return {"status": "ok"}
+
+
+@app.get("/healthz", tags=["system"])
+def healthz():
+    """Health check endpoint for Render."""
     return {"status": "ok"}
