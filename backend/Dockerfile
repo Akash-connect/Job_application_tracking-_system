@@ -5,14 +5,12 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY backend/requirements.txt /tmp/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r /tmp/requirements.txt
 
-COPY backend /app/backend
-COPY scripts /app/scripts
-COPY .env.example /app/.env.example
-
-RUN chmod +x /app/scripts/*.sh
+COPY . /app/backend
 
 WORKDIR /app/backend
+
+CMD ["uvicorn", "fastapi_service.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
