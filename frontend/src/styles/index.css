@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --bg-soft: rgba(15, 23, 42, 0.7);
+  --surface: rgba(15, 23, 42, 0.66);
+  --surface-border: rgba(148, 163, 184, 0.22);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --brand: #38bdf8;
+  --accent: #fb923c;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+  --bg: #eef4ff;
+  --bg-soft: rgba(255, 255, 255, 0.75);
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-border: rgba(148, 163, 184, 0.24);
+  --text: #0f172a;
+  --muted: #475569;
+  --brand: #0284c7;
+  --accent: #ea580c;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.16), transparent 24%),
+    var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.18);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.45s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
